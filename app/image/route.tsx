@@ -10,6 +10,7 @@ export async function GET(req: Request) {
   }
 
   const now = new Date();
+  now.setMinutes(now.getMinutes() + now.getTimezoneOffset() + 480); // 調整為 UTC+8 時區
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
   const [startH, startM] = startTime.split(":").map(Number);
